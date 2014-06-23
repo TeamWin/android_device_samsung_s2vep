@@ -1,4 +1,5 @@
 USE_CAMERA_STUB := true
+DEVICE_RESOLUTION := 480x800
 
 # inherit from the proprietary version
 -include vendor/samsung/galaxys2plus-common/BoardConfigVendor.mk
