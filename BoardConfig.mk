@@ -1,5 +1,4 @@
 USE_CAMERA_STUB := true
-DEVICE_RESOLUTION := 480x800
 
 # inherit from the proprietary version
 -include vendor/samsung/galaxys2plus-common/BoardConfigVendor.mk
@@ -19,6 +18,7 @@ BOARD_KERNEL_BASE := 0xa2000000
 BOARD_KERNEL_PAGESIZE := 4096
 
 TARGET_USERIMAGES_USE_EXT4 := true
+TARGET_USERIMAGES_USE_F2FS := true
 
 BOARD_BOOTIMAGE_PARTITION_SIZE := 8388608
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 8388608
@@ -83,7 +83,8 @@ BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charg
 BOARD_RIL_CLASS := ../../../device/samsung/s2vep/ril/
 
 # Recovery
-TARGET_RECOVERY_FSTAB := device/samsung/s2vep/ramdisk/fstab.capri_ss_s2vep
+TARGET_RECOVERY_FSTAB := device/samsung/s2vep/ramdisk/twrp.fstab
+TARGET_RECOVERY_INITRC := device/samsung/s2vep/ramdisk/init.recovery.capri_ss_s2vep.rc
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/class/android_usb/android0/f_mass_storage/lun%d/file"
 
 # healthd
@@ -98,6 +99,19 @@ TARGET_SPECIFIC_HEADER_PATH := device/samsung/s2vep/include
 # SELinux
 BOARD_SEPOLICY_DIRS += \
     device/samsung/s2vep/sepolicy
+
+# TWRP
+DEVICE_RESOLUTION := 480x800
+RECOVERY_SDCARD_ON_DATA := true
+BOARD_HAS_NO_REAL_SDCARD := true
+HAVE_SELINUX := true
+TW_INCLUDE_JB_CRYPTO := true
+TW_NO_REBOOT_BOOTLOADER := true
+TW_HAS_DOWNLOAD_MODE := true
+TW_INTERNAL_STORAGE_PATH := "/data/media"
+TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
+TW_EXTERNAL_STORAGE_PATH := "/external_sd"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
 
 BOARD_SEPOLICY_UNION += \
     file_contexts \
