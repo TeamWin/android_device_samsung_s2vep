@@ -83,7 +83,8 @@ BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charg
 BOARD_RIL_CLASS := ../../../device/samsung/s2vep/ril/
 
 # Recovery
-TARGET_RECOVERY_FSTAB := device/samsung/s2vep/ramdisk/twrp.fstab
+TARGET_RECOVERY_FSTAB := device/samsung/s2vep/ramdisk/fstab.capri_ss_s2vep
+#TARGET_RECOVERY_FSTAB := device/samsung/s2vep/ramdisk/twrp.fstab
 TARGET_RECOVERY_INITRC := device/samsung/s2vep/ramdisk/init.recovery.capri_ss_s2vep.rc
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/class/android_usb/android0/f_mass_storage/lun%d/file"
 
