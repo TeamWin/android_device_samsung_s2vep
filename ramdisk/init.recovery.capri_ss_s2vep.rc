@@ -46,6 +46,25 @@ service recovery /sbin/recovery
 service adbd /sbin/adbd recovery
     disabled
 
+on property:sys.usb.config=none
+    stop adbd
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/bDeviceClass 0
+
+on property:sys.usb.config=mtp,adb
+    stop adbd
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/functions mtp,adb
+    write /sys/class/android_usb/android0/enable 1
+    start adbd
+
+on property:sys.usb.config=adb
+    stop adbd
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/functions adb
+    write /sys/class/android_usb/android0/enable ${service.adb.root}
+    start adbd
+	
 # Always start adbd on userdebug and eng builds
 on property:ro.debuggable=1
     setprop adb.recovery 1
@@ -53,7 +72,7 @@ on property:ro.debuggable=1
 on property:adb.recovery=1
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor 04e8
-    write /sys/class/android_usb/android0/idProduct 6860
+    write /sys/class/android_usb/android0/idProduct D002
     write /sys/class/android_usb/android0/functions adb
     write /sys/class/android_usb/android0/enable 1
     write /sys/class/android_usb/android0/iManufacturer $ro.product.manufacturer
