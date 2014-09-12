@@ -18,6 +18,7 @@ PRODUCT_COPY_FILES += \
 	device/samsung/s2vep/ramdisk/init.bcm281x5.usb.rc:root/init.bcm281x5.usb.rc \
 	device/samsung/s2vep/ramdisk/init.log.rc:root/init.log.rc \
 	device/samsung/s2vep/ramdisk/init.recovery.capri_ss_s2vep.rc:root/init.recovery.capri_ss_s2vep.rc \
+	device/samsung/s2vep/ramdisk/init.rc:root/init.rc \
 	device/samsung/s2vep/ramdisk/lpm.rc:root/lpm.rc \
 	device/samsung/s2vep/ramdisk/ueventd.capri_ss_s2vep.rc:root/ueventd.capri_ss_s2vep.rc \
 	device/samsung/s2vep/ramdisk/fstab.capri_ss_s2vep:root/fstab.capri_ss_s2vep 

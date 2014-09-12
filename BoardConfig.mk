@@ -86,7 +86,7 @@ BOARD_RIL_CLASS := ../../../device/samsung/s2vep/ril/
 # Recovery
 TARGET_RECOVERY_FSTAB := device/samsung/s2vep/ramdisk/fstab.capri_ss_s2vep
 #TARGET_RECOVERY_FSTAB := device/samsung/s2vep/ramdisk/twrp.fstab
-TARGET_RECOVERY_INITRC := device/samsung/s2vep/ramdisk/init.recovery.capri_ss_s2vep.rc
+TARGET_RECOVERY_INITRC := device/samsung/s2vep/ramdisk/init.rc
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/class/android_usb/android0/f_mass_storage/lun%d/file"
 
 # healthd
